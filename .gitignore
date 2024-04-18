@@ -28,6 +28,9 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Ignore environment files (if containing sensitive data)
+.env
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/

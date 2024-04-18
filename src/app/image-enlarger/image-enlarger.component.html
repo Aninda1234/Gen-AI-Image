@@ -1,0 +1,19 @@
+<h3> Enlarge Image  </h3>
+<p> Increase the size of any Image (without losing resolution)! </p>
+<br />
+
+<div>
+    <label for="imageFile">Upload Image:</label>
+    <input type="file" id="imageFile" (change)="handleFileInput($event)" />
+  </div>
+  
+  <button (click)="processImageEnlarger()">Enlarge Image</button>
+  
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+  <div *ngIf="enlargedImageUrl">
+    <!-- Display the enlarged image here -->
+    <img [src]="enlargedImageUrl" alt="Enlarged Image">
+  </div>
+
+  

@@ -1,0 +1,30 @@
+
+<h3> Image to 3D slow motion! </h3>
+<p> Turn any image into a 3D slow motion GIF. </p>
+<br />
+<p> Either upload an Image file or share an URL of the Image. </p>
+
+<div>
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" [(ngModel)]="imageUrl" />
+</div>
+<p> or </p>
+  <div>
+    <label for="imageFile">Upload Image:</label>
+    <input type="file" id="imageFile" (change)="handleFileInput($event)" />
+  </div>
+  
+  <br />
+  <button (click)="processPhotoTo3dSlowMotion()">Generate Slow Motion Video</button>
+  
+  <br />
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+  <div *ngIf="slowMotionVideoUrl">
+    <!-- Display the slow-motion video here -->
+    <video controls>
+      <source [src]="slowMotionVideoUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  

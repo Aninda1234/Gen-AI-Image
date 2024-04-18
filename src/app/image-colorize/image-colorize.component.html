@@ -1,0 +1,19 @@
+<h3> Colorize Image  </h3>
+<p> Color a black and white Image! </p>
+<br />
+
+<div>
+    <label for="imageFile">Upload Black & White Image:</label>
+    <input type="file" id="imageFile" (change)="handleFileInput($event)" />
+  </div>
+  
+  <button (click)="processImageColorize()">Colorize Image</button>
+  
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+  <div *ngIf="colorizedImageUrl">
+    <!-- Display the colorized image here -->
+    <img [src]="colorizedImageUrl" alt="Colorized Image">
+  </div>
+
+  

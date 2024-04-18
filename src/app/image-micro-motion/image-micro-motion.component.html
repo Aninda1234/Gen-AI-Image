@@ -1,0 +1,21 @@
+<h3> Image micro-motion! </h3>
+<p> Make a picture with clouds and sky come alive. </p>
+<br />
+
+<div>
+    <label for="imageFile">Upload Image:</label>
+    <input type="file" id="imageFile" (change)="handleFileInput($event)" />
+  </div>
+  
+  <button (click)="processImageMicroMotion()">Generate Micro-Motion Video</button>
+  
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+  <div *ngIf="microMotionVideoUrl">
+    <!-- Display the micro-motion video here -->
+    <video controls>
+      <source [src]="microMotionVideoUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
