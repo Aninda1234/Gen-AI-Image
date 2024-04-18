@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'; // Import map operator
 import { environment } from 'environment';
 
 @Injectable({
@@ -82,5 +83,28 @@ export class ImageProcessingService {
   }
 
   // Add more functions for other image processing functionalities as needed
+  picToLife(imageFile: File, choice: number): Observable<any> {
+    const formData = new FormData();
+    formData.append('image_target', imageFile);
+    formData.append('type', choice.toString());
+
+    const options = {
+      headers: {
+        'X-RapidAPI-Key': this.rapidApiKey,
+        'X-RapidAPI-Host': this.rapidApiHost
+      },
+      data: formData
+    };
+
+    return this.http.post<any>(this.apiUrl, formData, options).pipe(
+      map((response: any) => {
+        if (response && response.data && response.data.video) {
+          return response.data.video;
+        } else {
+          throw new Error('No video found in response');
+        }
+      })
+    );
+  }
 }
 

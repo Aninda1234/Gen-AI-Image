@@ -10,6 +10,7 @@ import { ImageColorizeComponent } from './image-colorize/image-colorize.componen
 import { PhotoToThreedSlowComponent } from './photo-to-threed-slow/photo-to-threed-slow.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PicToLifeComponent } from './pic-to-life/pic-to-life.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     ImageMicroMotionComponent,
     ImageEnlargerComponent,
     ImageColorizeComponent,
-    PhotoToThreedSlowComponent
+    PhotoToThreedSlowComponent,
+    PicToLifeComponent
   ],
   imports: [
     BrowserModule,

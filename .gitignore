@@ -30,6 +30,7 @@ yarn-error.log
 
 # Ignore environment files (if containing sensitive data)
 .env
+environment.ts
 
 # Miscellaneous
 /.angular/cache

@@ -1,0 +1,30 @@
+
+<h3> Picture come alive! </h3>
+<p> Make any picture come alive. </p>
+<br />
+
+<div>
+    <label for="imageFile">Upload Image:</label>
+    <input type="file" id="imageFile" (change)="handleFileInput($event)" />
+  </div>
+  
+  <div>
+    <label for="choice">Choose:</label>
+    <select id="choice" [(ngModel)]="choice">
+      <option value="1">Only Face</option>
+      <option value="2">Full body</option>
+    </select>
+  </div>
+  
+  <button (click)="processPicToLife()">Bring Photo to Life</button>
+  
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+  <div *ngIf="videoUrl">
+    <!-- Display the video here -->
+    <video controls>
+      <source [src]="videoUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
